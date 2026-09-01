@@ -215,7 +215,9 @@ STATUS: ONLINE
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg" width="95%" alt="Pac-Man Contribution Graph"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg" alt="Pac-Man Contribution Graph" width="100%">
+</p>
 
 </div>
 
