@@ -213,13 +213,11 @@ STATUS: ONLINE
 
 # `> PACMAN_CONTRIBUTIONS`
 
-<div align="center">
+
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg" alt="Pac-Man Contribution Graph" width="100%">
 </p>
-
-</div>
 
 ---
 
