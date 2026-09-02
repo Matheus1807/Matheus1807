@@ -18,6 +18,20 @@ jobs:
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          games: pacman
+          player_style: opportunistic
+
+      - name: Check generated files
+        run: |
+          echo "Arquivos gerados:"
+          find dist -maxdepth 2 -type f -print || true
+
+          echo ""
+          echo "Informações do SVG:"
+          if [ -f dist/pacman-contribution-graph.svg ]; then
+            grep -E "<frames>|<frameRate>|<durationMs>|<ghost|id=\"pacman\"" dist/pacman-contribution-graph.svg || true
+          fi
 
       - name: Push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
