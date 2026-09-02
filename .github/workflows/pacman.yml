@@ -26,184 +26,193 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/gregkozakiewicz/pacman-contribution-graph.git pacman-generator
 
+      # Remove as bolinhas douradas dos dias sem contribuição
       - name: Remove golden pellets
         run: |
           python3 - <<'PY'
+          import re
+
           path = "pacman-generator/src/svg.mjs"
 
           with open(path, "r", encoding="utf-8") as f:
               code = f.read()
 
-          old = '''} else {
-          // Empty days are maze corridors dotted with pellets for Pac to eat.
-          pellets.push(
-          `<circle class="pellet" cx="${round(x + CELL / 2)}" cy="${round(y + CELL / 2)}" r="1.6">${eat}</circle>`
-          );
-          }'''
+          pattern = r'''} else \{
+\s*// Empty days are maze corridors dotted with pellets for Pac to eat\.
+\s*pellets\.push\(
+\s*`<circle class="pellet".*?</circle>`
+\s*\);
+\s*}'''
 
-          code = code.replace(
-              old,
-              "} else {\n          }"
+          new_code, count = re.subn(
+              pattern,
+              "} else {\n        }",
+              code,
+              count=1,
+              flags=re.DOTALL
           )
 
-          with open(path, "w", encoding="utf-8") as f:
-              f.write(code)
+          if count == 0:
+              print("Aviso: pellets já podem ter sido removidos ou código mudou.")
+          else:
+              print("Pellets dourados removidos.")
 
-          print("Golden pellets removidos.")
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(new_code)
           PY
 
+      # Adiciona os 4 fantasmas no mesmo caminho do Pac-Man
       - name: Add Pac-Man ghosts
         run: |
           python3 - <<'PY'
+          import re
+
           path = "pacman-generator/src/svg.mjs"
 
           with open(path, "r", encoding="utf-8") as f:
               code = f.read()
 
-          marker = '''const pac = `
-          <g class="pac">'''
+          marker = "const pac = `"
 
-          ghosts = '''const ghosts = `
-          <!-- BLINKY -->
-          <g class="ghost ghost-red">
+          if marker not in code:
+              raise SystemExit(
+                  "ERRO: const pac não encontrado no svg.mjs."
+              )
 
+          ghosts = r'''const ghosts = `
+          <!-- BLINKY - vermelho -->
+          <g>
             <path
-              d="
-                M-7 6
-                V-1
-                A7 7 0 0 1 7 -1
-                V6
-                L4 3
-                L1 6
-                L-2 3
-                L-5 6
-                Z
-              "
+              fill="#ff2d2d"
+              d="M-7,6 V-1
+                 A7,7 0 0 1 7,-1
+                 V6
+                 L4,3
+                 L1,6
+                 L-2,3
+                 L-5,6
+                 Z"
             />
 
-            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
-            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="-2.5" cy="-1" r="2" fill="#ffffff"/>
+            <circle cx="2.5" cy="-1" r="2" fill="#ffffff"/>
 
-            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
-            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#2563eb"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#2563eb"/>
 
             <animateMotion
               dur="${dur}s"
-              begin="-${round(dur * 0.70)}s"
+              begin="-${round(dur * 0.20)}s"
               repeatCount="indefinite"
               rotate="0"
               path="${motion}"
+              keyPoints="0;1"
+              keyTimes="0;1"
               calcMode="linear"
             />
           </g>
 
-          <!-- PINKY -->
-          <g class="ghost ghost-pink">
 
+          <!-- PINKY - rosa -->
+          <g>
             <path
-              d="
-                M-7 6
-                V-1
-                A7 7 0 0 1 7 -1
-                V6
-                L4 3
-                L1 6
-                L-2 3
-                L-5 6
-                Z
-              "
+              fill="#ff8fd8"
+              d="M-7,6 V-1
+                 A7,7 0 0 1 7,-1
+                 V6
+                 L4,3
+                 L1,6
+                 L-2,3
+                 L-5,6
+                 Z"
             />
 
-            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
-            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="-2.5" cy="-1" r="2" fill="#ffffff"/>
+            <circle cx="2.5" cy="-1" r="2" fill="#ffffff"/>
 
-            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
-            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#2563eb"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#2563eb"/>
 
             <animateMotion
               dur="${dur}s"
-              begin="-${round(dur * 0.55)}s"
+              begin="-${round(dur * 0.15)}s"
               repeatCount="indefinite"
               rotate="0"
               path="${motion}"
+              keyPoints="0;1"
+              keyTimes="0;1"
               calcMode="linear"
             />
           </g>
 
-          <!-- INKY -->
-          <g class="ghost ghost-cyan">
 
+          <!-- INKY - azul -->
+          <g>
             <path
-              d="
-                M-7 6
-                V-1
-                A7 7 0 0 1 7 -1
-                V6
-                L4 3
-                L1 6
-                L-2 3
-                L-5 6
-                Z
-              "
+              fill="#22d3ee"
+              d="M-7,6 V-1
+                 A7,7 0 0 1 7,-1
+                 V6
+                 L4,3
+                 L1,6
+                 L-2,3
+                 L-5,6
+                 Z"
             />
 
-            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
-            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="-2.5" cy="-1" r="2" fill="#ffffff"/>
+            <circle cx="2.5" cy="-1" r="2" fill="#ffffff"/>
 
-            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
-            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#2563eb"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#2563eb"/>
 
             <animateMotion
               dur="${dur}s"
-              begin="-${round(dur * 0.40)}s"
+              begin="-${round(dur * 0.10)}s"
               repeatCount="indefinite"
               rotate="0"
               path="${motion}"
+              keyPoints="0;1"
+              keyTimes="0;1"
               calcMode="linear"
             />
           </g>
 
-          <!-- CLYDE -->
-          <g class="ghost ghost-orange">
 
+          <!-- CLYDE - laranja -->
+          <g>
             <path
-              d="
-                M-7 6
-                V-1
-                A7 7 0 0 1 7 -1
-                V6
-                L4 3
-                L1 6
-                L-2 3
-                L-5 6
-                Z
-              "
+              fill="#ff9f1c"
+              d="M-7,6 V-1
+                 A7,7 0 0 1 7,-1
+                 V6
+                 L4,3
+                 L1,6
+                 L-2,3
+                 L-5,6
+                 Z"
             />
 
-            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
-            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="-2.5" cy="-1" r="2" fill="#ffffff"/>
+            <circle cx="2.5" cy="-1" r="2" fill="#ffffff"/>
 
-            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
-            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#2563eb"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#2563eb"/>
 
             <animateMotion
               dur="${dur}s"
-              begin="-${round(dur * 0.25)}s"
+              begin="-${round(dur * 0.05)}s"
               repeatCount="indefinite"
               rotate="0"
               path="${motion}"
+              keyPoints="0;1"
+              keyTimes="0;1"
               calcMode="linear"
             />
           </g>
           `;
 
-          const pac = `
-          <g class="pac">'''
-
-          if marker not in code:
-              raise SystemExit(
-                  "ERRO: não encontrei o local do Pac-Man no svg.mjs."
-              )
+          const pac = `'''
 
           code = code.replace(
               marker,
@@ -211,65 +220,31 @@ jobs:
               1
           )
 
-          style_marker = ".pac { fill: var(--pac); }"
+          # Agora coloca os fantasmas dentro do SVG,
+          # imediatamente antes do Pac-Man.
+          pattern = r'(\$\{pac\}\s*</svg>`;)'
 
-          style_new = """.pac { fill: var(--pac); }
-
-          .ghost-red {
-            fill: #ff2d2d;
-          }
-
-          .ghost-pink {
-            fill: #ff8fd8;
-          }
-
-          .ghost-cyan {
-            fill: #22d3ee;
-          }
-
-          .ghost-orange {
-            fill: #ff9f1c;
-          }"""
-
-          if style_marker in code:
-              code = code.replace(
-                  style_marker,
-                  style_new,
-                  1
-              )
-
-          output_marker = '''${pac}
-
-          </svg>'''
-
-          output_new = '''${ghosts}
+          replacement = '''${ghosts}
           ${pac}
 
-          </svg>'''
+          </svg>`;'''
 
-          if output_marker not in code:
-              print(
-                  "Aviso: não encontrei o marcador final exato. "
-                  "Tentando outro método."
-              )
+          code, count = re.subn(
+              pattern,
+              replacement,
+              code,
+              count=1
+          )
 
-              code = code.replace(
-                  "${pac}",
-                  "${ghosts}\n${pac}",
-                  1
-              )
-
-          else:
-              code = code.replace(
-                  output_marker,
-                  output_new,
-                  1
+          if count == 0:
+              raise SystemExit(
+                  "ERRO: não consegui inserir os fantasmas no SVG final."
               )
 
           with open(path, "w", encoding="utf-8") as f:
               f.write(code)
 
-          print("Fantasmas adicionados.")
+          print("4 fantasmas adicionados com sucesso.")
           PY
 
       - name: Generate Pac-Man
