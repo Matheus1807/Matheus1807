@@ -14,9 +14,6 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      # ==========================================
-      # 1. GERA O PAC-MAN NORMAL
-      # ==========================================
       - name: Generate contribution graph
         uses: abozanona/pacman-contribution-graph@main
         with:
@@ -25,47 +22,6 @@ jobs:
           games: pacman
           player_style: opportunistic
 
-      # ==========================================
-      # 2. TESTA O MOTOR DO PAC-MAN
-      # ==========================================
-      - name: Test Pac-Man engine
-        run: |
-          mkdir -p test
-
-          npx --yes pacman-contribution-graph@5.3.2 \
-            --game pacman \
-            --username test \
-            --platform scenario \
-            --gameTheme github \
-            --scenario checkerboard \
-            --output test/pacman-scenario.svg
-
-          echo "================================"
-          echo "TESTE DO PAC-MAN"
-          echo "================================"
-
-          echo ""
-          echo "INFORMACOES DA ANIMACAO:"
-          grep -E "<frames>|<frameRate>|<durationMs>" \
-            test/pacman-scenario.svg || true
-
-          echo ""
-          echo "PAC-MAN:"
-          grep -o 'id="pacman"' \
-            test/pacman-scenario.svg | wc -l
-
-          echo ""
-          echo "GHOSTS:"
-          grep -oiE 'ghost|blinky|pinky|inky|clyde' \
-            test/pacman-scenario.svg | head -20 || true
-
-          echo ""
-          echo "ARQUIVO:"
-          ls -lh test/pacman-scenario.svg
-
-      # ==========================================
-      # 3. DEBUG DO SVG REAL
-      # ==========================================
       - name: Debug generated SVG
         run: |
           echo "================================"
@@ -106,9 +62,14 @@ jobs:
           grep -o 'values="[^"]*"' \
             dist/pacman-contribution-graph.svg | head -30 || true
 
-      # ==========================================
-      # 4. ENVIA PARA A BRANCH OUTPUT
-      # ==========================================
+          echo ""
+          echo "================================"
+          echo "CELULAS COM CONTRIBUICOES"
+          echo "================================"
+
+          grep -o 'fill="#[0-9a-fA-F]*"' \
+            dist/pacman-contribution-graph.svg | sort | uniq -c
+
       - name: Push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
