@@ -3,6 +3,7 @@ name: Generate Pac-Man Contributions
 on:
   schedule:
     - cron: "0 */12 * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -40,10 +41,235 @@ jobs:
           );
           }'''
 
-          code = code.replace(old, "} else {\n          }")
+          code = code.replace(
+              old,
+              "} else {\n          }"
+          )
 
           with open(path, "w", encoding="utf-8") as f:
               f.write(code)
+
+          print("Golden pellets removidos.")
+          PY
+
+      - name: Add Pac-Man ghosts
+        run: |
+          python3 - <<'PY'
+          path = "pacman-generator/src/svg.mjs"
+
+          with open(path, "r", encoding="utf-8") as f:
+              code = f.read()
+
+          marker = '''const pac = `
+          <g class="pac">'''
+
+          ghosts = '''const ghosts = `
+          <!-- BLINKY -->
+          <g class="ghost ghost-red">
+
+            <path
+              d="
+                M-7 6
+                V-1
+                A7 7 0 0 1 7 -1
+                V6
+                L4 3
+                L1 6
+                L-2 3
+                L-5 6
+                Z
+              "
+            />
+
+            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+
+            <animateMotion
+              dur="${dur}s"
+              begin="-${round(dur * 0.70)}s"
+              repeatCount="indefinite"
+              rotate="0"
+              path="${motion}"
+              calcMode="linear"
+            />
+          </g>
+
+          <!-- PINKY -->
+          <g class="ghost ghost-pink">
+
+            <path
+              d="
+                M-7 6
+                V-1
+                A7 7 0 0 1 7 -1
+                V6
+                L4 3
+                L1 6
+                L-2 3
+                L-5 6
+                Z
+              "
+            />
+
+            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+
+            <animateMotion
+              dur="${dur}s"
+              begin="-${round(dur * 0.55)}s"
+              repeatCount="indefinite"
+              rotate="0"
+              path="${motion}"
+              calcMode="linear"
+            />
+          </g>
+
+          <!-- INKY -->
+          <g class="ghost ghost-cyan">
+
+            <path
+              d="
+                M-7 6
+                V-1
+                A7 7 0 0 1 7 -1
+                V6
+                L4 3
+                L1 6
+                L-2 3
+                L-5 6
+                Z
+              "
+            />
+
+            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+
+            <animateMotion
+              dur="${dur}s"
+              begin="-${round(dur * 0.40)}s"
+              repeatCount="indefinite"
+              rotate="0"
+              path="${motion}"
+              calcMode="linear"
+            />
+          </g>
+
+          <!-- CLYDE -->
+          <g class="ghost ghost-orange">
+
+            <path
+              d="
+                M-7 6
+                V-1
+                A7 7 0 0 1 7 -1
+                V6
+                L4 3
+                L1 6
+                L-2 3
+                L-5 6
+                Z
+              "
+            />
+
+            <circle cx="-2.5" cy="-1" r="2" fill="white"/>
+            <circle cx="2.5" cy="-1" r="2" fill="white"/>
+
+            <circle cx="-1.8" cy="-1" r="0.8" fill="#1d4ed8"/>
+            <circle cx="3.2" cy="-1" r="0.8" fill="#1d4ed8"/>
+
+            <animateMotion
+              dur="${dur}s"
+              begin="-${round(dur * 0.25)}s"
+              repeatCount="indefinite"
+              rotate="0"
+              path="${motion}"
+              calcMode="linear"
+            />
+          </g>
+          `;
+
+          const pac = `
+          <g class="pac">'''
+
+          if marker not in code:
+              raise SystemExit(
+                  "ERRO: não encontrei o local do Pac-Man no svg.mjs."
+              )
+
+          code = code.replace(
+              marker,
+              ghosts,
+              1
+          )
+
+          style_marker = ".pac { fill: var(--pac); }"
+
+          style_new = """.pac { fill: var(--pac); }
+
+          .ghost-red {
+            fill: #ff2d2d;
+          }
+
+          .ghost-pink {
+            fill: #ff8fd8;
+          }
+
+          .ghost-cyan {
+            fill: #22d3ee;
+          }
+
+          .ghost-orange {
+            fill: #ff9f1c;
+          }"""
+
+          if style_marker in code:
+              code = code.replace(
+                  style_marker,
+                  style_new,
+                  1
+              )
+
+          output_marker = '''${pac}
+
+          </svg>'''
+
+          output_new = '''${ghosts}
+          ${pac}
+
+          </svg>'''
+
+          if output_marker not in code:
+              print(
+                  "Aviso: não encontrei o marcador final exato. "
+                  "Tentando outro método."
+              )
+
+              code = code.replace(
+                  "${pac}",
+                  "${ghosts}\n${pac}",
+                  1
+              )
+
+          else:
+              code = code.replace(
+                  output_marker,
+                  output_new,
+                  1
+              )
+
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(code)
+
+          print("Fantasmas adicionados.")
           PY
 
       - name: Generate Pac-Man
