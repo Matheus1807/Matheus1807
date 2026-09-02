@@ -1,31 +1,43 @@
-name: Pac-Man Contribution Graph
+name: Generate Pac-Man contribution graph
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 */12 * * *"
+
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
-      - name: Generate Pac-Man contribution graph
-        uses: abozanona/pacman-contribution-graph@main
-        with:
-          github_user_name: Matheus1807
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          games: pacman
-          player_style: opportunistic
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Publish Pac-Man to output branch
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download Pac-Man generator
+        run: |
+          git clone --depth 1 https://github.com/gregkozakiewicz/pacman-contribution-graph.git pacman-generator
+
+      - name: Generate Pac-Man
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: Matheus1807
+        run: |
+          cd pacman-generator
+          node src/generate.mjs --out dist
+
+      - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          build_dir: dist
           target_branch: output
+          build_dir: pacman-generator/dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
