@@ -103,18 +103,17 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ---
 
-### 🟡 Pac-Man Contributions
+### 👾 Minhas Contribuições
 
 <div align="center">
 
-<img 
-    alt="Pac-Man Contribution Graph"
-    src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg"
-    width="100%"
+<img
+  alt="Pac-Man Contribution Graph"
+  src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman.svg"
+  width="100%"
 />
 
 </div>
-
 ---
 
 <div align="center">
