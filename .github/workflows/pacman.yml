@@ -3,7 +3,6 @@ name: Generate Pac-Man Contributions
 on:
   schedule:
     - cron: "0 */12 * * *"
-
   workflow_dispatch:
 
 permissions:
@@ -24,11 +23,28 @@ jobs:
 
       - name: Download Pac-Man generator
         run: |
-          git clone --depth 1 https://github.com/pencilrebel/pacman-contribution-graph.git pacman-generator
+          git clone --depth 1 https://github.com/gregkozakiewicz/pacman-contribution-graph.git pacman-generator
 
-      - name: Add ghosts
+      - name: Remove golden pellets
         run: |
-          cp .github/pacman/svg.mjs pacman-generator/src/svg.mjs
+          python3 - <<'PY'
+          path = "pacman-generator/src/svg.mjs"
+
+          with open(path, "r", encoding="utf-8") as f:
+              code = f.read()
+
+          old = '''} else {
+          // Empty days are maze corridors dotted with pellets for Pac to eat.
+          pellets.push(
+          `<circle class="pellet" cx="${round(x + CELL / 2)}" cy="${round(y + CELL / 2)}" r="1.6">${eat}</circle>`
+          );
+          }'''
+
+          code = code.replace(old, "} else {\n          }")
+
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(code)
+          PY
 
       - name: Generate Pac-Man
         env:
