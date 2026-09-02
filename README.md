@@ -1,37 +1,38 @@
 <div align="center">
 
-# Oiii, eu sou o Matheus! 👋
+# Matheus1807 / README.md
 
-Estudante de **Desenvolvimento de Sistemas**, aprendendo programação e construindo meus primeiros projetos na área de tecnologia.
+### Oiii 👋 eu sou o Matheus, estudante de Desenvolvimento de Sistemas!
 
-Atualmente estudando **Python, JavaScript, HTML e Banco de Dados**.
+Estudando programação, desenvolvimento de sistemas e construindo meus primeiros projetos.
+
+---
+
+<img src="https://skillicons.dev/icons?i=python,javascript,html,mysql,vscode,git,github" height="38" alt="Tecnologias"/>
+
+<br><br>
+
+<a href="https://github.com/Matheus1807">
+  <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
 
 </div>
 
 ---
 
-## 👨‍💻 Sobre mim
+### Sobre mim
 
-- 🎓 Estudante de Desenvolvimento de Sistemas
-- 🐍 Estudando Python
-- 🌐 Aprendendo desenvolvimento web
-- 🗄️ Estudando Banco de Dados
-- 💻 Criando projetos para melhorar minhas habilidades
-- 🚀 Buscando evoluir cada vez mais como desenvolvedor
+Atualmente sou estudante de **Desenvolvimento de Sistemas** e estou construindo minha base em programação.
+
+Tenho estudado principalmente **Python**, **JavaScript**, **HTML** e **Banco de Dados**, além de lógica de programação e desenvolvimento de sistemas.
+
+Busco evoluir através da prática, criando projetos e aprendendo cada vez mais sobre desenvolvimento de software.
 
 ---
 
-## 🛠️ Tecnologias
+### Tecnologias
 
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,javascript,html,mysql" />
-
-</div>
-
-<br>
-
-<div align="center">
+<div align="left">
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
@@ -42,38 +43,10 @@ Atualmente estudando **Python, JavaScript, HTML e Banco de Dados**.
 
 ---
 
-## 📊 GitHub
+### Atualmente estudando
 
-<div align="center">
-
-<img height="170"
-src="https://github-readme-stats.vercel.app/api?username=Matheus1807&show_icons=true&theme=github_dark&hide_border=true"
-/>
-
-<img height="170"
-src="https://github-readme-stats.vercel.app/api/top-langs/?username=Matheus1807&layout=compact&theme=github_dark&hide_border=true"
-/>
-
-</div>
-
----
-
-## 🟡 Pac-Man Contributions
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg" width="100%" alt="Pac-Man Contribution Graph"/>
-
-</div>
-
----
-
-<div align="center">
-
-### 📫 Contato
-
-<a href="https://github.com/Matheus1807">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-</div>
+```text
+Python            ███████████░░░░
+JavaScript        ████████░░░░░░░
+HTML              █████████░░░░░░
+Banco de Dados    ███████░░░░░░░░
