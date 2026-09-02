@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Generate Pac-Man contribution graph
-        uses: abozanona/pacman-contribution-graph@v5.0.0
+        uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: Matheus1807
           github_token: ${{ secrets.GITHUB_TOKEN }}
