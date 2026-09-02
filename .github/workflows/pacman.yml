@@ -22,16 +22,44 @@ jobs:
           games: pacman
           player_style: opportunistic
 
-      - name: Check generated files
+      - name: Debug generated SVG
         run: |
-          echo "Arquivos gerados:"
-          find dist -maxdepth 2 -type f -print || true
+          echo "================================"
+          echo "ARQUIVOS GERADOS"
+          echo "================================"
+          find dist -type f -maxdepth 2 -print
 
           echo ""
-          echo "Informações do SVG:"
-          if [ -f dist/pacman-contribution-graph.svg ]; then
-            grep -E "<frames>|<frameRate>|<durationMs>|<ghost|id=\"pacman\"" dist/pacman-contribution-graph.svg || true
-          fi
+          echo "================================"
+          echo "INFORMAÇÕES DA ANIMAÇÃO"
+          echo "================================"
+
+          grep -E "<frames>|<frameRate>|<durationMs>" \
+            dist/pacman-contribution-graph.svg || true
+
+          echo ""
+          echo "================================"
+          echo "PAC-MAN"
+          echo "================================"
+
+          grep -o 'id="pacman"' \
+            dist/pacman-contribution-graph.svg | wc -l
+
+          echo ""
+          echo "================================"
+          echo "GHOSTS"
+          echo "================================"
+
+          grep -oiE 'ghost|blinky|pinky|inky|clyde' \
+            dist/pacman-contribution-graph.svg | head -30 || true
+
+          echo ""
+          echo "================================"
+          echo "TRANSFORMAÇÕES"
+          echo "================================"
+
+          grep -o 'values="[^"]*"' \
+            dist/pacman-contribution-graph.svg | head -30 || true
 
       - name: Push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
