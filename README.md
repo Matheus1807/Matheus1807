@@ -1,52 +1,124 @@
+# 👨🏻‍💻 Matheus
+
+**`Desenvolvedor Back-end`**
+
+Me chamo Matheus e sou estudante de **Desenvolvimento de Sistemas**. Atualmente estou desenvolvendo meus conhecimentos em programação, com foco em **Python, JavaScript, desenvolvimento web e banco de dados**.
+Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de programação e desenvolver projetos que me ajudem a evoluir como desenvolvedor. Meu objetivo é construir uma base sólida em desenvolvimento de software e futuramente atuar profissionalmente na área de tecnologia.
+
+<p align="left">
+    <a href="https://github.com/Matheus1807?tab=repositories&sort=stargazers">
+        <img 
+            alt="Total de estrelas" 
+            title="Total de estrelas GitHub" 
+            src="https://custom-icon-badges.demolab.com/github/stars/Matheus1807?color=55960c&style=for-the-badge&labelColor=488207&logo=star&label=estrelas"
+        />
+    </a>
+    <a href="https://github.com/Matheus1807?tab=followers">
+        <img 
+            alt="Seguidores" 
+            title="Me siga no GitHub" 
+            src="https://custom-icon-badges.demolab.com/github/followers/Matheus1807?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=github&label=Seguidores&logoColor=white"
+        />
+    </a>
+</p>
+
+---
+
+### 🤖 Linguagens e Tecnologias
+
+<img 
+    align="left" 
+    alt="Python" 
+    title="Python"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="JavaScript" 
+    title="JavaScript"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="HTML"
+    title="HTML" 
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="CSS" 
+    title="CSS"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="Java" 
+    title="Java"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="MySQL" 
+    title="MySQL"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="Git" 
+    title="Git"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" 
+/>
+
+<img 
+    align="left" 
+    alt="GitHub" 
+    title="GitHub"
+    width="30px" 
+    style="padding-right: 10px;" 
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" 
+/>
+
+<br/>
+<br/>
+
+---
+
+### 🟡 Pac-Man Contributions
+
 <div align="center">
 
-# Matheus1807 / README.md
-
-### Oiii 👋 eu sou o Matheus, estudante de Desenvolvimento de Sistemas!
-
-Estudando programação, desenvolvimento de sistemas e construindo meus primeiros projetos.
-
----
-
-<img src="https://skillicons.dev/icons?i=python,javascript,html,mysql,vscode,git,github" height="38" alt="Tecnologias"/>
-
-<br><br>
-
-<a href="https://github.com/Matheus1807">
-  <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
+<img 
+    alt="Pac-Man Contribution Graph"
+    src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg"
+    width="100%"
+/>
 
 </div>
 
 ---
 
-### Sobre mim
+<div align="center">
 
-Atualmente sou estudante de **Desenvolvimento de Sistemas** e estou construindo minha base em programação.
-
-Tenho estudado principalmente **Python**, **JavaScript**, **HTML** e **Banco de Dados**, além de lógica de programação e desenvolvimento de sistemas.
-
-Busco evoluir através da prática, criando projetos e aprendendo cada vez mais sobre desenvolvimento de software.
-
----
-
-### Tecnologias
-
-<div align="left">
-
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/Banco_de_Dados-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
+**BUILD • LEARN • DEBUG • DEPLOY**
 
 </div>
-
----
-
-### Atualmente estudando
-
-```text
-Python            ███████████░░░░
-JavaScript        ████████░░░░░░░
-HTML              █████████░░░░░░
-Banco de Dados    ███████░░░░░░░░
