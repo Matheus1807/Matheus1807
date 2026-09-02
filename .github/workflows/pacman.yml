@@ -5,75 +5,27 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   generate:
-    permissions:
-      contents: write
-
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
-      - name: Generate contribution graph
-        uses: abozanona/pacman-contribution-graph@main
+      - name: Generate Pac-Man contribution graph
+        uses: abozanona/pacman-contribution-graph@v5.0.0
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: Matheus1807
           github_token: ${{ secrets.GITHUB_TOKEN }}
           games: pacman
           player_style: opportunistic
 
-      - name: Debug generated SVG
-        run: |
-          echo "================================"
-          echo "ARQUIVOS GERADOS"
-          echo "================================"
-
-          find dist -type f -maxdepth 2 -print
-
-          echo ""
-          echo "================================"
-          echo "INFORMACOES DA ANIMACAO"
-          echo "================================"
-
-          grep -E "<frames>|<frameRate>|<durationMs>" \
-            dist/pacman-contribution-graph.svg || true
-
-          echo ""
-          echo "================================"
-          echo "PAC-MAN"
-          echo "================================"
-
-          grep -o 'id="pacman"' \
-            dist/pacman-contribution-graph.svg | wc -l
-
-          echo ""
-          echo "================================"
-          echo "GHOSTS"
-          echo "================================"
-
-          grep -oiE 'ghost|blinky|pinky|inky|clyde' \
-            dist/pacman-contribution-graph.svg | head -30 || true
-
-          echo ""
-          echo "================================"
-          echo "TRANSFORMACOES"
-          echo "================================"
-
-          grep -o 'values="[^"]*"' \
-            dist/pacman-contribution-graph.svg | head -30 || true
-
-          echo ""
-          echo "================================"
-          echo "CELULAS COM CONTRIBUICOES"
-          echo "================================"
-
-          grep -o 'fill="#[0-9a-fA-F]*"' \
-            dist/pacman-contribution-graph.svg | sort | uniq -c
-
-      - name: Push SVGs to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Publish Pac-Man to output branch
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          target_branch: output
           build_dir: dist
+          target_branch: output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
