@@ -105,15 +105,11 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ### 👾 Minhas Contribuições
 
-<div align="center">
-
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/Matheus1807/Matheus1807/output/pacman-contribution-graph.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/daniel04sabino/daniel04sabino/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/daniel04sabino/daniel04sabino/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/daniel04sabino/daniel04sabino/output/pacman-contribution-graph.svg">
 </picture>
-</div>
----
 
 <div align="center">
 
