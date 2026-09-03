@@ -1,287 +1,33 @@
-name: Generate Pac-Man Contributions
+name: Generate pacman animation
 
 on:
-  schedule:
-    - cron: "0 */12 * * *"
+  schedule: # execute every 12 hours
+    - cron: "* */12 * * *"
 
   workflow_dispatch:
 
-permissions:
-  contents: write
+  push:
+    branches:
+    - main
 
 jobs:
   generate:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: generate pacman-contribution-graph.svg
+        uses: abozanona/pacman-contribution-graph@main
         with:
-          node-version: 24
-
-      - name: Download Pac-Man generator
-        run: |
-          git clone --depth 1 https://github.com/gregkozakiewicz/pacman-contribution-graph.git pacman-generator
-
-      - name: Customize Pac-Man
-        run: |
-          python3 - <<'PY'
-          path = "pacman-generator/src/svg.mjs"
-
-          with open(path, "r", encoding="utf-8") as f:
-              code = f.read()
+          github_user_name: ${{ github.repository_owner }}
 
 
-          # ============================================================
-          # 1. REMOVE AS BOLINHAS DOURADAS
-          # ============================================================
-
-          old_pellets = '''      } else {
-                  // Empty days are maze corridors dotted with pellets for Pac to eat.
-                  pellets.push(
-                    `<circle class="pellet" cx="${round(x + CELL / 2)}" cy="${round(y + CELL / 2)}" r="1.6">${eat}</circle>`
-                  );
-                }'''
-
-          new_pellets = '''      } else {
-                }'''
-
-          if old_pellets in code:
-              code = code.replace(
-                  old_pellets,
-                  new_pellets,
-                  1
-              )
-              print("OK - bolinhas douradas removidas")
-          else:
-              print("AVISO - bloco das bolinhas nao encontrado")
-
-
-          # ============================================================
-          # 2. ADICIONA OS FANTASMAS
-          # ============================================================
-
-          marker = '''  </g>`;
-            return `<svg'''
-
-          ghosts = '''  </g>`;
-
-            const ghosts = `
-            
-            <!-- BLINKY -->
-            <g class="ghost">
-              <path
-                fill="#ff2d2d"
-                d="
-                  M-6 6
-                  V-1
-                  A6 6 0 0 1 6 -1
-                  V6
-                  L3 3
-                  L0 6
-                  L-3 3
-                  L-6 6
-                  Z
-                "
-              />
-
-              <circle cx="-2.2" cy="-1" r="1.8" fill="white"/>
-              <circle cx="2.2" cy="-1" r="1.8" fill="white"/>
-
-              <circle cx="-1.6" cy="-1" r="0.8" fill="#2563eb"/>
-              <circle cx="2.8" cy="-1" r="0.8" fill="#2563eb"/>
-
-              <animateMotion
-                dur="${dur}s"
-                begin="-${round(dur * 0.18)}s"
-                repeatCount="indefinite"
-                rotate="0"
-                path="${motion}"
-                keyPoints="0;1"
-                keyTimes="0;1"
-                calcMode="linear"
-              />
-            </g>
-
-
-            <!-- PINKY -->
-            <g class="ghost">
-              <path
-                fill="#ff8fd8"
-                d="
-                  M-6 6
-                  V-1
-                  A6 6 0 0 1 6 -1
-                  V6
-                  L3 3
-                  L0 6
-                  L-3 3
-                  L-6 6
-                  Z
-                "
-              />
-
-              <circle cx="-2.2" cy="-1" r="1.8" fill="white"/>
-              <circle cx="2.2" cy="-1" r="1.8" fill="white"/>
-
-              <circle cx="-1.6" cy="-1" r="0.8" fill="#2563eb"/>
-              <circle cx="2.8" cy="-1" r="0.8" fill="#2563eb"/>
-
-              <animateMotion
-                dur="${dur}s"
-                begin="-${round(dur * 0.14)}s"
-                repeatCount="indefinite"
-                rotate="0"
-                path="${motion}"
-                keyPoints="0;1"
-                keyTimes="0;1"
-                calcMode="linear"
-              />
-            </g>
-
-
-            <!-- INKY -->
-            <g class="ghost">
-              <path
-                fill="#22d3ee"
-                d="
-                  M-6 6
-                  V-1
-                  A6 6 0 0 1 6 -1
-                  V6
-                  L3 3
-                  L0 6
-                  L-3 3
-                  L-6 6
-                  Z
-                "
-              />
-
-              <circle cx="-2.2" cy="-1" r="1.8" fill="white"/>
-              <circle cx="2.2" cy="-1" r="1.8" fill="white"/>
-
-              <circle cx="-1.6" cy="-1" r="0.8" fill="#2563eb"/>
-              <circle cx="2.8" cy="-1" r="0.8" fill="#2563eb"/>
-
-              <animateMotion
-                dur="${dur}s"
-                begin="-${round(dur * 0.10)}s"
-                repeatCount="indefinite"
-                rotate="0"
-                path="${motion}"
-                keyPoints="0;1"
-                keyTimes="0;1"
-                calcMode="linear"
-              />
-            </g>
-
-
-            <!-- CLYDE -->
-            <g class="ghost">
-              <path
-                fill="#ff9f1c"
-                d="
-                  M-6 6
-                  V-1
-                  A6 6 0 0 1 6 -1
-                  V6
-                  L3 3
-                  L0 6
-                  L-3 3
-                  L-6 6
-                  Z
-                "
-              />
-
-              <circle cx="-2.2" cy="-1" r="1.8" fill="white"/>
-              <circle cx="2.2" cy="-1" r="1.8" fill="white"/>
-
-              <circle cx="-1.6" cy="-1" r="0.8" fill="#2563eb"/>
-              <circle cx="2.8" cy="-1" r="0.8" fill="#2563eb"/>
-
-              <animateMotion
-                dur="${dur}s"
-                begin="-${round(dur * 0.06)}s"
-                repeatCount="indefinite"
-                rotate="0"
-                path="${motion}"
-                keyPoints="0;1"
-                keyTimes="0;1"
-                calcMode="linear"
-              />
-            </g>
-            `;
-
-            return `<svg'''
-
-          if marker not in code:
-              raise SystemExit(
-                  "ERRO: nao encontrei o final do Pac-Man"
-              )
-
-          code = code.replace(
-              marker,
-              ghosts,
-              1
-          )
-
-          print("OK - fantasmas criados")
-
-
-          # ============================================================
-          # 3. COLOCA OS FANTASMAS NO SVG
-          # ============================================================
-
-          old_output = '''  ${pac}
-          </svg>`;'''
-
-          new_output = '''  ${ghosts}
-            ${pac}
-          </svg>`;'''
-
-          if old_output not in code:
-              raise SystemExit(
-                  "ERRO: nao encontrei ${pac} no SVG final"
-              )
-
-          code = code.replace(
-              old_output,
-              new_output,
-              1
-          )
-
-          print("OK - fantasmas inseridos no SVG")
-
-
-          # ============================================================
-          # SALVA
-          # ============================================================
-
-          with open(path, "w", encoding="utf-8") as f:
-              f.write(code)
-
-          print("")
-          print("===================================")
-          print("PAC-MAN CUSTOMIZADO COM SUCESSO")
-          print("===================================")
-          PY
-
-
-      - name: Generate Pac-Man
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd pacman-generator
-          node src/generate.mjs --user Matheus1807 --out dist
-
-
-      - name: Publish Pac-Man
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: push pacman-contribution-graph.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
-          build_dir: pacman-generator/dist
+          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
