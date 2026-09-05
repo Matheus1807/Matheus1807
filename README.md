@@ -78,8 +78,6 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ---
 
----
-
 ### 👾 Minhas Contribuições
 
 <picture>
