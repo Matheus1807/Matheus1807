@@ -22,13 +22,23 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
             src="https://custom-icon-badges.demolab.com/github/stars/Matheus1807?color=55960c&style=for-the-badge&labelColor=488207&logo=star&label=estrelas"
         />
     </a>
-    <a href="https://github.com/Matheus1807?tab=followers">
+
+  <a href="https://github.com/Matheus1807?tab=followers">
         <img 
             alt="Seguidores" 
             title="Me siga no GitHub" 
             src="https://custom-icon-badges.demolab.com/github/followers/Matheus1807?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=github&label=Seguidores&logoColor=white"
         />
     </a>
+
+  <a href="https://www.instagram.com/matheusrobert___/">
+        <img
+            alt="Instagram"
+            title="Me siga no Instagram"
+            src="https://img.shields.io/badge/Instagram-matheusrobert___-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
+        />
+    </a>
+</p>
 </p>
 
 ---
