@@ -43,8 +43,6 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ---
 
----
-
 ### Main skills:
 ![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
 ![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
