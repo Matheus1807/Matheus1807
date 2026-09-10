@@ -44,7 +44,6 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 ---
 
 ### Main skills:
-![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
 ![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
 
@@ -56,21 +55,13 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 ![Windows](https://img.shields.io/badge/-Windows-0D1117?style=for-the-badge&logo=windows&labelColor=0D1117)&nbsp;
 
 ### Other Knowledge:
-![HTML](https://img.shields.io/badge/-HTML-0D1117?style=for-the-badge&logo=html5&labelColor=0D1117)&nbsp;
-![CSS](https://img.shields.io/badge/-CSS-0D1117?style=for-the-badge&logo=css3&logoColor=1572B6&labelColor=0D1117)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&labelColor=0D1117)&nbsp;
-![SQL](https://img.shields.io/badge/-SQL-0D1117?style=for-the-badge&logo=postgresql&logoColor=4169E1&labelColor=0D1117)&nbsp;
+
 
 ### Backend / APIs:
-![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
-![FastAPI](https://img.shields.io/badge/-FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
-![REST API](https://img.shields.io/badge/-REST%20API-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
+
 
 ### Studying in this moment:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
-![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
-![FastAPI](https://img.shields.io/badge/-FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&labelColor=0D1117)&nbsp;
 ![Git](https://img.shields.io/badge/-Git-0D1117?style=for-the-badge&logo=git&labelColor=0D1117)&nbsp;
 
 ---
