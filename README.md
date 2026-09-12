@@ -3,7 +3,7 @@
 
 <img 
   align="right"
-  width="50%"
+  width="44%"
   src="https://github.com/hak553/photoToProfile/blob/main/Programming%20Computer.svg?raw=true"
   alt="Developer Laptop"
 />
