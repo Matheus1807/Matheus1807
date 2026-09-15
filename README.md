@@ -60,6 +60,7 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ### Backend / APIs:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
+![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
 
 ### Studying in this moment:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
