@@ -61,6 +61,7 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 ### Backend / APIs:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
 ![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
+![FastAPI](https://img.shields.io/badge/-FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
 ![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=0D1117)&nbsp;
 
 ### FiveM / Qbox:
@@ -77,7 +78,6 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 ![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=0D1117)&nbsp;
 ![HTML5](https://img.shields.io/badge/-HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=E34F26&labelColor=0D1117)&nbsp;
 ![CSS3](https://img.shields.io/badge/-CSS3-0D1117?style=for-the-badge&logo=css3&logoColor=1572B6&labelColor=0D1117)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=0D1117)&nbsp;
 
 ---
 
