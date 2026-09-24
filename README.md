@@ -62,24 +62,23 @@ Estou sempre buscando aprender novas tecnologias, melhorar minha lógica de prog
 
 ### Backend / APIs:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
+
+### Framework
 ![FastAPI](https://img.shields.io/badge/-FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
 ![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
+![Qbox](https://img.shields.io/badge/-Qbox-0D1117?style=for-the-badge)&nbsp
 
 ### Databases:
 ![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=0D1117)&nbsp;
 ![MariaDB](https://img.shields.io/badge/-MariaDB-0D1117?style=for-the-badge&logo=mariadb&logoColor=003545&labelColor=0D1117)&nbsp;
 
-### FiveM / Qbox:
-![Qbox](https://img.shields.io/badge/-Qbox-0D1117?style=for-the-badge)&nbsp;
+### Outras:
 ![Lua](https://img.shields.io/badge/-Lua-0D1117?style=for-the-badge&logo=lua&logoColor=2C2D72&labelColor=0D1117)&nbsp;
-![MariaDB](https://img.shields.io/badge/-MariaDB-0D1117?style=for-the-badge&logo=mariadb&logoColor=003545&labelColor=0D1117)&nbsp;
+
 
 ### Studying in this moment:
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=0D1117)&nbsp;
-![FastAPI](https://img.shields.io/badge/-FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688&labelColor=0D1117)&nbsp;
-![Django](https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=0D1117)&nbsp;
 ![Lua](https://img.shields.io/badge/-Lua-0D1117?style=for-the-badge&logo=lua&logoColor=2C2D72&labelColor=0D1117)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=0D1117)&nbsp;
 ![MariaDB](https://img.shields.io/badge/-MariaDB-0D1117?style=for-the-badge&logo=mariadb&logoColor=003545&labelColor=0D1117)&nbsp;
 
 ---
